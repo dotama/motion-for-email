@@ -83,8 +83,8 @@ def getBeijinTime():
         print(min_ratio)
         print(max_ratio)
         max_ratio = int(hour)
-        min_1 = 6000 * min_ratio
-        max_1 = 2500 * max_ratio
+        min_1 = 2500 * min_ratio
+        max_1 = 6000 * max_ratio
         min_1 = int(K * min_1)
         max_1 = int(K * max_1)
         print("天气系数是")
@@ -216,9 +216,9 @@ def main(_user, _passwd, min_1, max_1):
 
 # 获取时间戳
 def get_time():
-    url = 'https://api.m.jd.com/client.action?functionId=queryMaterialProducts&client=wh5'
+    url = 'http://api.m.taobao.com/rest/api3.do?api=mtop.common.getTimestamp'
     response = requests.get(url, headers=headers).json()
-    t = response['currentTime2']
+    t = response['data']['t']
     return t
 
 
